@@ -1,0 +1,59 @@
+:root {
+    --primary-color: #4CAF50; /* Vert */
+    --secondary-color: #8B4513; /* Marron */
+    --background-color: #F0F8FF; /* Bleu clair */
+    --text-color: #333333;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+
+    /* Propriétés pour l'image de fond */
+  background-image: url('../img/theme_foret.webp'); /* Chemin relatif vers l'image */
+  background-size: cover; /* Adapte l'image à la taille de l'écran */
+  background-repeat: no-repeat; /* Empêche la répétition de l'image */
+  background-position: center center; /* Centre l'image dans l'écran */
+  }
+  
+  h1, h2 {
+    color: var(--primary-color);
+  }
+
+  header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  section {
+    padding: 2rem;
+    margin: 1rem;
+    border: 1px solid var(--secondary-color);
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+    color: white;
+  }
