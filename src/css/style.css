@@ -1,59 +1,159 @@
 :root {
-    --primary-color: #4CAF50; /* Vert */
-    --secondary-color: #8B4513; /* Marron */
-    --background-color: #F0F8FF; /* Bleu clair */
-    --text-color: #333333;
-  }
-  
-  body {
-    font-family: 'Roboto', sans-serif;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
+  --primary-color: #4CAF50; /* Vert */
+  --secondary-color: #8B4513; /* Marron */
+  --background-color: #F0F8FF; /* Bleu clair */
+  --text-color: #333333;
+}
 
-    /* Propriétés pour l'image de fond */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  padding-top: 60px; /* Compense le header fixe */
+  padding-bottom: 60px; /* Compense le footer fixe */
+
+  /* Propriétés pour l'image de fond */
   background-image: url('../img/theme_foret.webp'); /* Chemin relatif vers l'image */
   background-size: cover; /* Adapte l'image à la taille de l'écran */
   background-repeat: no-repeat; /* Empêche la répétition de l'image */
   background-position: center center; /* Centre l'image dans l'écran */
-  }
-  
-  h1, h2 {
-    color: var(--primary-color);
+}
+
+header,
+footer {
+  background-color: rgba(0, 0, 0, 0.6); /* Fond noir avec 60% de transparence */
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  text-align: center;
+  color: white;
+  height: 60px; /* Fixe une hauteur pour le header et le footer */
+  display: flex; /* Flexbox pour centrer le contenu */
+  justify-content: center; /* Centre horizontalement */
+  align-items: center; /* Centre verticalement */
+  padding: 0; /* Supprime les marges internes */
+}
+
+header {
+  top: 0; /* Fixe le header en haut */
+}
+
+footer {
+  bottom: 0; /* Fixe le footer en bas */
+}
+
+nav ul {
+  list-style: none; /* Supprime les puces de la liste */
+  margin: 0;
+  padding: 0;
+  display: flex; /* Par défaut, les liens sont alignés horizontalement */
+  justify-content: center; /* Centre les liens horizontalement */
+  align-items: center; /* Centre les liens verticalement */
+  height: 100%; /* Hauteur complète du menu */
+}
+
+nav a i {
+  margin-right: 8px; /* Ajoute un espace de 8px entre l'icône et le texte */
+}
+
+nav a {
+  text-decoration: none; /* Supprime le soulignement */
+  color: white; /* Couleur du texte */
+  font-weight: bold;
+  padding: 0 20px; /* Ajoute de l’espace autour des liens */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Ombre pour améliorer la lisibilité */
+}
+
+section {
+  padding: 2rem;
+  margin: 1rem;
+  border: 1px solid var(--secondary-color);
+  background-color: white;
+  border-radius: 8px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* Styles par défaut du bouton hamburger */
+.hamburger {
+  display: none; /* Masque le bouton par défaut */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1001; /* Assure que le bouton est au-dessus du nav */
+}
+
+/* Styles pour petits écrans */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* Affiche le bouton hamburger */
   }
 
-  header {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 1rem;
-    text-align: center;
+  nav {
+    display: flex; /* Utilise Flexbox pour aligner les éléments */
+    flex-direction: column; /* Colonne pour la navigation */
+    position: absolute;
+    top: 60px; /* Juste en dessous du bouton hamburger */
+    left: 10px; /* Légèrement décalé à droite du bord */
+    width: 180px; /* Largeur fixe pour le menu */
+    background-color: rgba(0, 0, 0, 0.9); /* Fond sombre et opaque */
+    padding: 10px;
+    border-radius: 8px; /* Coins arrondis */
+    z-index: 1000;
+    transform: translateX(-100%); /* Le menu est hors de l'écran à gauche par défaut */
+    opacity: 0; /* Menu invisible par défaut */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animation fluide */
   }
-  
+
+  nav.active {
+    transform: translateX(0); /* Le menu glisse en place */
+    opacity: 1; /* Menu visible */
+  }
+
   nav ul {
-    list-style: none;
+    flex-direction: column; /* Affiche les liens verticalement */
+    align-items: flex-start; /* Les liens sont alignés à gauche */
     padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+    margin: 0;
   }
-  
+
   nav a {
-    text-decoration: none;
-    color: white;
+    padding: 10px 15px; /* Ajoute de l’espace autour des liens */
+    text-align: left; /* Texte aligné à gauche */
+    width: 100%; /* Le lien occupe toute la largeur */
   }
-  
-  section {
-    padding: 2rem;
-    margin: 1rem;
-    border: 1px solid var(--secondary-color);
-    background-color: white;
-    border-radius: 8px;
+}
+
+/* Styles pour écrans larges (desktop) */
+@media (min-width: 769px) {
+  nav {
+    position: relative; /* Réinitialise le positionnement pour les grands écrans */
+    display: flex; /* Les liens sont horizontaux */
+    flex-direction: row; /* Aligne les liens en ligne */
+    justify-content: center; /* Centre les liens horizontalement */
+    align-items: center; /* Centre verticalement */
+    background-color: transparent; /* Enlève le fond du menu */
+    transform: none; /* Supprime la transformation */
+    opacity: 1; /* Toujours visible */
+    height: 100%; /* Le menu occupe la hauteur du header */
   }
-  
-  footer {
-    text-align: center;
-    padding: 1rem;
-    background-color: var(--secondary-color);
-    color: white;
+
+  nav ul {
+    flex-direction: row; /* Réinitialise l'alignement horizontal */
+    justify-content: center;
+    align-items: center;
   }
+
+  nav a {
+    text-align: center; /* Texte centré */
+    padding: 0 20px; /* Ajuste l’espacement horizontal */
+  }
+}

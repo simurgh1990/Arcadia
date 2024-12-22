@@ -5,19 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Zoo Arcadia</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
+
   <header>
-    <h1>Zoo Arcadia</h1>
+    <button class="hamburger" aria-label="Menu">
+      <i class="fas fa-bars"></i>
+    </button>
     <nav>
       <ul>
-        <li><a href="#presentation">Présentation</a></li>
-        <li><a href="#habitats">Habitats</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#avis">Avis</a></li>
+        <li><a href="index.html"><i class="fas fa-home"></i> Accueil</a></li>
+        <li><a href="#services"><i class="fas fa-concierge-bell"></i> Services</a></li>
+        <li><a href="#habitats"><i class="fas fa-paw"></i> Habitats</a></li>
+        <li><a href="connexion.html"><i class="fas fa-sign-in-alt"></i> Connexion</a></li>
+        <li><a href="contact.html"><i class="fas fa-envelope"></i> Contact</a></li>
       </ul>
     </nav>
   </header>
+
   <main>
     <section id="presentation">
       <h2>Présentation</h2>
@@ -32,15 +39,26 @@
       <p>Profitez de nos services : restauration, visites guidées, et plus encore.</p>
     </section>
     <section id="avis">
-        <h2>Avis des visiteurs</h2>
-        <ul>
-          <li>Jean : "Une expérience inoubliable !"</li>
-          <li>Marie : "Les animaux sont bien soignés."</li>
-        </ul>
-      </section>
+      <h2>Avis des visiteurs</h2>
+      <ul>
+        <li>Jean : "Une expérience inoubliable !"</li>
+        <li>Marie : "Les animaux sont bien soignés."</li>
+      </ul>
+    </section>
   </main>
+
   <footer>
     <p>© 2024 Zoo Arcadia - Tous droits réservés.</p>
   </footer>
+
+  <script>
+    const hamburger = document.querySelector('.hamburger');
+    const nav = document.querySelector('nav');
+  
+    hamburger.addEventListener('click', () => {
+      nav.classList.toggle('active'); // Ajoute ou supprime la classe "active"
+    });
+  </script>
+  
 </body>
 </html>
